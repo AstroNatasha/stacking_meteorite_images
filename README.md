@@ -26,6 +26,8 @@ Clone este repositório ou baixe o arquivo ‘removing_pixels.ipynb’para o seu
 Primeiro, certifique-se de que os arquivos de imagem estão presente no mesmo diretório que o arquivo Python. As bibliotecas devem estar instaladas em seu ambiente Python.
 
 ## Metodologia
+Para manipular as imagens, é necessário transformá-las em arrays, de forma que temos matrizes de pixels. Esta é uma prática muito importante na astronomia, uma vez que lidamos bastante com imagens e é comum precisar tratá-las para obter análises específicas. As soluções apresentadas são exemplos dessas manipulações.
+
 ### Solução 1 - Empilhar as imagens dos elementos
 Com cada imagem representando um elemento, foi testada uma função que remove os pixels mais brilhantes definidos à partir de um determinado nível de brilho na imagem do carbono.
 

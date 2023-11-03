@@ -44,4 +44,4 @@ Das soluções, a Solução 2 é a mais eficiente para casos de contaminação, 
 ## Referências
 FONSECA, Natasha Costa da et al.. ANÁLISE ELEMENTAR DOS METEORITOS PIRENÓPOLIS E SANTA CATARINA.. In: Anais da Jornada Giulio Massarani de Iniciação Científica, Tecnológica, Artística e Cultural. Anais...Rio de Janeiro(RJ) UFRJ, 2021. Disponível em: https//www.even3.com.br/anais/jgmictac/318413-ANALISE-ELEMENTAR-DOS-METEORITOS-PIRENOPOLIS-E-SANTA-CATARINA. Acesso em: 03/11/2023
 
-
+JARRELL, Karícia Fraga Godoy. Análise elementar dos meteoritos Santa Vitória do Palmar e Cebollati. 2019. 110 f. Trabalho de conclusão de curso (Bacharelado em Astronomia) - Observatório do Valongo, Universidade Federal do Rio de Janeiro, Rio de Janeiro, 2019.

@@ -13,9 +13,11 @@ O meteorito Pirenópolis é um meteorito metálico pouco estudado que possui uma
 
 ## Dependências
 
-- NumPy
-- Matplotlib
+- numpy
+- matplotlib
 - cv2
+- Astropy.io
+- PIL
 
 ## Como usar o código
 

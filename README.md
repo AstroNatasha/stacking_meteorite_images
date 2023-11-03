@@ -33,7 +33,7 @@ Com cada imagem representando um elemento, foi testada uma função que remove o
 Remover os pixels mais brilhantes da imagem completa é uma solução boa caso houvesse algum outro ponto de carbono na imagem que não fosse resultado de uma contaminação, porque neste caso a imagem é feita em relevo, de forma que as contaminações sempre serão os pixels mais brilhantes.
 
 ### Solução 3 - Identificar a cor azul da imagem completa
-Esta solução consegue abranger casos em que não necessariamente queremos remover os pixels mais brilhantes, mas sim, um elemento por completo. Não é muito útil para casos de contaminação, mas certamente é interessante para isolar um elemento dos outros, caso quiséssemos tanto removê-los, quanto estudá-los separadamente (se não houvesse a opção de imagens separadas para cada elemento, este seria um bom começo).
+Esta solução consegue abranger casos em que não necessariamente queremos remover os pixels mais brilhantes, mas sim, um elemento por completo. Não é muito útil para casos de contaminação, mas certamente é interessante para isolar um elemento dos outros, caso quiséssemos tanto removê-los, quanto estudá-los separadamente (se não houvesse a opção de imagens separadas para cada elemento, este seria um bom começo). Mesmo testando a definição de diferentes faixas de azul em HSV e BGR, ainda sim houve um problema em que tons de verde também foram removidos, então este é um ponto a se melhorar.
 
 ### Solução 4 - Não empilhar as imagens dos elementos com Carbono
 Claro, a solução mais simples se um elemento é exclusivamente uma contaminação, como é o caso dessa área do meteorito Pirenópolis.

@@ -1,17 +1,16 @@
-# Comparando técnicas de manipulação de imagens para a remoção da contaminação de elementos na superfície de meteoritos
+# Comparing Image Manipulation Techniques for the Removal of Contaminants on the Surface of Meteorites (with Python)
 
-## Resumo
+## Abstract
 
-O meteorito Pirenópolis é um meteorito metálico pouco estudado que possui uma matriz composta por aproximadamente 95% de Fe e cerca de 5% de Ni (Kamacita), com regiões de (Fe, Ni) 3P (Shreibersita), nanopartículas de C e traços de Al e Si. A análise mineralógica e elementar do mesmo foi realizada por duas técnicas não-destrutivas, PIXE (Emissão de Raios-X Induzidos por Partículas) e MEV (Microscopia Eletrônica de Varredura). Ao analisar a superfície do meteorito pela técnica de Microscopia Eletrônica de Varredura (MEV/SEM), tivemos acesso a várias imagens de uma mesma região específica na escala de 250 micrômetros. O microscópio eletrônico pode detectar diferentes elementos e associá-los a cores. Desta forma, podemos ter informações sobre como os elementos interagem entre si, possibilitando a identificação dos minerais presentes. Durante o processo de tratamento do meteorito, podem ocorrer contaminações de elementos na superfície do mesmo. Identificamos estas contaminações por conta dos relevos apresentados na imagem completa (full_image.PNG) . Neste caso, Temos contaminações de Carbono (C) na superfície e queremos removê-las. Este código apresenta uma comparação de 4 formas diferentes para realizar esta remoção. No fim, transformamos a imagem no formato fits.
+The Pirenópolis meteorite is a poorly studied metallic meteorite with a matrix composed of approximately 95% Fe and about 5% Ni (Kamacite), featuring regions of (Fe, Ni)3P (Shreibersite), C nanoparticles, and traces of Al and Si. Mineralogical and elemental analysis was conducted using two non-destructive techniques, PIXE (Particle-Induced X-ray Emission) and SEM (Scanning Electron Microscopy). By analyzing the meteorite's surface through Scanning Electron Microscopy (SEM), we obtained multiple images of a specific region at a scale of 250 micrometers. The electron microscope can detect different elements and associate them with colors, providing insights into element interactions for mineral identification. During the meteorite treatment process, surface contamination of elements can occur. Contaminations were identified through relief features in the complete image ('full_image.PNG'). In this case, we have Carbon (C) contaminations on the surface that need removal. This code presents a comparison of four different methods for performing this removal, ultimately transforming the image into fits format.
 
-## Sobre o repositório
+## About the Repository
 
-- ‘Fe.PNG’,‘Ni.PNG’,‘Al.PNG’,‘P.PNG’,‘C.PNG’: Imagens no formato PNG da mesma área de superfície do meteorito Pirenópolis, cada uma representando um elemento por uma cor diferente.
--  'full_image.PNG' : Imagem única no formato PNG da mesma área de superfície do meteorito Pirenópolis, com cada uma elemento sendo representado por uma cor diferente.
+- 'Fe.PNG', 'Ni.PNG', 'Al.PNG', 'P.PNG', 'C.PNG': PNG format images of the same surface area of the Pirenópolis meteorite, each representing an element by a different color.
+- 'full_image.PNG': Single PNG image of the same surface area of the Pirenópolis meteorite, with each element represented by a different color.
+- 'removing_pixels.ipynb': Python code performing contamination removal techniques.
 
-- ‘removing_pixels.ipynb’: Código em Python que realiza técnicas de remoção da contaminação
-
-## Dependências
+## Dependencies
 
 - numpy
 - matplotlib
@@ -19,31 +18,31 @@ O meteorito Pirenópolis é um meteorito metálico pouco estudado que possui uma
 - Astropy.io
 - PIL
 
-## Como usar o código
+## How to Use the Code
 
-Clone este repositório ou baixe o arquivo ‘removing_pixels.ipynb’para o seu ambiente de trabalho. Execute o código Python ‘removing_pixels.ipynb’ em seu ambiente. Você pode fazer isso usando um ambiente Python de sua escolha, como Jupyter Notebook ou um ambiente de desenvolvimento integrado (IDE).
+Clone this repository or download the 'removing_pixels.ipynb' file to your working environment. Run the 'removing_pixels.ipynb' Python code in your environment, such as Jupyter Notebook or an integrated development environment (IDE) of your choice.
 
-Primeiro, certifique-se de que os arquivos de imagem estão presente no mesmo diretório que o arquivo Python. As bibliotecas devem estar instaladas em seu ambiente Python.
+First, ensure that the image files are present in the same directory as the Python file. The required libraries must be installed in your Python environment.
 
-## Metodologia
+## Methodology
 Para manipular as imagens, é necessário transformá-las em arrays, de forma que temos matrizes de pixels. Esta é uma prática muito importante na astronomia, uma vez que lidamos bastante com imagens e é comum precisar tratá-las para obter análises específicas. As soluções apresentadas são exemplos dessas manipulações.
 
-### Solução 1 - Empilhar as imagens dos elementos
-Com cada imagem representando um elemento, foi testada uma função que remove os pixels mais brilhantes definidos à partir de um determinado nível de brilho na imagem do carbono.
+### Solution 1 - Stack images of the elements
+Each image representing an element was tested with a function that removes the brightest pixels defined from a certain brightness level in the carbon image.
 
-### Solução 2 - Identificar pixels mais brilhantes da imagem completa
-Remover os pixels mais brilhantes da imagem completa é uma solução boa caso houvesse algum outro ponto de carbono na imagem que não fosse resultado de uma contaminação, porque neste caso a imagem é feita em relevo, de forma que as contaminações sempre serão os pixels mais brilhantes.
+### Solution 2 - Identify brightest pixels in the complete image
+Removing the brightest pixels from the complete image is a good solution if there were other carbon points in the image not resulting from contamination. In this case, the image is relief-based, so contaminations will always be the brightest pixels.
 
-### Solução 3 - Identificar a cor azul da imagem completa
-Esta solução consegue abranger casos em que não necessariamente queremos remover os pixels mais brilhantes, mas sim, um elemento por completo. Não é muito útil para casos de contaminação, mas certamente é interessante para isolar um elemento dos outros, caso quiséssemos tanto removê-los, quanto estudá-los separadamente (se não houvesse a opção de imagens separadas para cada elemento, este seria um bom começo). Mesmo testando a definição de diferentes faixas de azul em HSV e BGR, ainda sim houve um problema em que tons de verde também foram removidos, então este é um ponto a se melhorar.
+### Solution 3 - Identify the blue color in the complete image
+This solution covers cases where we do not necessarily want to remove the brightest pixels but an entire element. It may not be very useful for contamination cases but is suitable for isolating one element from others, useful for removal or separate study (if there were no separate images for each element, this would be a good start). Even testing the definition of different blue ranges in HSV and BGR, there was still an issue where green tones were also removed, so there is room for improvement.
 
-### Solução 4 - Não empilhar as imagens dos elementos com Carbono
-Claro, a solução mais simples se um elemento é exclusivamente uma contaminação, como é o caso dessa área do meteorito Pirenópolis.
+### Solution 4 - Do not stack images of elements with Carbon
+Of course, the simplest solution if an element is exclusively contamination, as is the case with this area of the Pirenópolis meteorite.
 
-## Conclusão
-Das soluções, a Solução 2 é a mais eficiente para casos de contaminação, pois permite que apenas objetos contaminados sejam removidos, independente de existe o mesmo elemento que realmente percente à superfície do meteorito. Mesmo assim, em nenhuma solução houve remoção totalmente completa do carbono nas imagens, provavelmente porque as imagens não foram criadas com a ideia de uma manipulação posterior. Apesar disso, este é um projeto inicial escalável que tem potencial de sofisticação. Como passo futuro, talvez fosse interessante pensar em formas de quantizar os pixels removidos de forma que a contagem do elemento contaminador também pudesse ser removida, oferecendo uma análise ainda mais precisa.
+## Conclusion
+Of the solutions, Solution 2 is the most efficient for contamination cases, allowing only contaminated objects to be removed, regardless of whether the same element actually belongs to the meteorite's surface. Still, in no solution was the complete removal of carbon in the images achieved, probably because the images were not created with the idea of later manipulation. Despite this, this is an initial scalable project with the potential for sophistication. As a future step, it might be interesting to think about ways to quantize the removed pixels so that the count of the contaminating element could also be removed, offering an even more accurate analysis.
 
-## Referências
+## References
 FONSECA, Natasha Costa da et al.. ANÁLISE ELEMENTAR DOS METEORITOS PIRENÓPOLIS E SANTA CATARINA.. In: Anais da Jornada Giulio Massarani de Iniciação Científica, Tecnológica, Artística e Cultural. Anais...Rio de Janeiro(RJ) UFRJ, 2021. Disponível em: https//www.even3.com.br/anais/jgmictac/318413-ANALISE-ELEMENTAR-DOS-METEORITOS-PIRENOPOLIS-E-SANTA-CATARINA. Acesso em: 03/11/2023
 
 JARRELL, Karícia Fraga Godoy. Análise elementar dos meteoritos Santa Vitória do Palmar e Cebollati. 2019. 110 f. Trabalho de conclusão de curso (Bacharelado em Astronomia) - Observatório do Valongo, Universidade Federal do Rio de Janeiro, Rio de Janeiro, 2019.
